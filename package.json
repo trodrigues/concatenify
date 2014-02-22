@@ -1,0 +1,27 @@
+{
+  "name": "concatenify",
+  "version": "0.0.0",
+  "description": "Helps browserify concatenate a tree of files",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:trodrigues/concatenify.git"
+  },
+  "keywords": [
+    "browserify",
+    "browserify-transform",
+    "transform",
+    "asset",
+    "pipeline",
+    "tree"
+  ],
+  "author": "Tiago Rodrigues",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/trodrigues/concatenify/issues"
+  }
+}
