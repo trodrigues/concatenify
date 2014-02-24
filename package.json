@@ -1,6 +1,6 @@
 {
   "name": "concatenify",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Helps browserify concatenate a tree of files",
   "main": "index.js",
   "scripts": {
