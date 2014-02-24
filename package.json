@@ -23,5 +23,10 @@
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/trodrigues/concatenify/issues"
+  },
+  "dependencies": {
+    "through": "~2.3.4",
+    "glob": "~3.2.8",
+    "falafel": "~0.3.1"
   }
 }
