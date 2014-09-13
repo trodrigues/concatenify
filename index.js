@@ -10,7 +10,8 @@ function makeTreeFile(basedir, filePath) {
   var sourceFiles = glob.sync(treePath);
   var treeFile = '';
   sourceFiles.forEach(function (file) {
-    treeFile += "require('"+file.replace(basedir, '.')+"');";
+    var fixed = basedir.replace(/\\/g, '/'); //This fixes issue on windows
+    treeFile += "require('" + file.replace(fixed, '.') + "');";
   });
   return treeFile;
 }
@@ -29,12 +30,12 @@ function isRequireFor(node, moduleName) {
   return isCallFor(node, 'require') && getArgOfType(node, 0, 'Literal') == moduleName;
 }
 
-
-module.exports = function (file) {
+function concatenify(file) {
   var data = '';
   var dirname = path.dirname(file);
+
   return through(
-    function write (buf) { data += buf },
+    function write(buf) { data += buf; },
     function end() {
       var output = falafel(data, function (node) {
         if(isRequireFor(node, 'concatenify')){
@@ -51,3 +52,5 @@ module.exports = function (file) {
     }
   );
 };
+
+module.exports = concatenify;
