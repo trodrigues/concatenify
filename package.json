@@ -4,7 +4,7 @@
   "description": "Helps browserify concatenate a tree of files",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",

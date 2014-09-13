@@ -10,11 +10,14 @@ function makeTreeFile(basedir, filePath) {
   var sourceFiles = glob.sync(treePath);
   var treeFile = '';
   sourceFiles.forEach(function (file) {
-    var fixed = basedir.replace(/\\/g, '/'); //This fixes issue on windows
-    treeFile += "require('" + file.replace(fixed, '.') + "');";
+    treeFile += "require('" + file.replace(replaceBackslashes(basedir), '.') + "');";
   });
   return treeFile;
 }
+
+function replaceBackslashes(basedir) {
+  return basedir.replace(/\\/g, '/');
+};
 
 function isCallFor(node, name) {
   var callee = node.callee;
